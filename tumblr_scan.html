@@ -3,13 +3,29 @@
 </head>
 
 <body>
-
-  {{> hello}}
+  <div class="container">
+    {{> hello}}
+  </div>
 </body>
 
 <template name="hello">
-<form>
-  <input type="text" placeholder=""/><label>.tumblr.com</label>
-  <input type="submit">
-</form>
+<nav class="navbar navbar-default" role="navigation">
+
+  <form class="navbar-form navbar-left">
+    <div class="form-group">
+      <input type="text" placeholder=""/><label>.tumblr.com</label>
+      <input type="submit">
+    </div>
+  </form>
+  </nav>
+  <ul class="list-group">
+    {{#each posts}}
+      <li class="post list-group-item">
+        {{#each photos}}
+          <img src="{{original_size.url}}" class="img-responsive">
+        {{/each}}
+        {{{caption}}}
+      </li>
+    {{/each}}
+  </ul>
 </template>
